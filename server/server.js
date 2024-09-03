@@ -14,12 +14,6 @@ app.get('/users',(req,res)=>{
     res.send(users);
 })
 
-app.get('/alert',(req,res)=>{
-    console.log('Alerting message');
-    const alertMessage = ['banana'['yellow','green'], 'apple'['red','green','lemonGreen']];
-    res.send(alertMessage);
-})
-
 app.listen(3000, ()=>{
     console.log('Congratulation you have created a server');
 })
