@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('./class');
-const port = 4000;
+const port = 3000;
 
 const app =express();
 
@@ -19,17 +19,23 @@ app.get('/users',(req,res)=>{
 
 app.get('/download',(req,res)=>{
     console.log('Loading download content');
-    res.download('Js-for-kids.pdf',console.error())
-    res.send('Downloading your content')
+    const file ='server/Js-for-kids.pdf';
+    res.download(file,(err)=>{
+        if (err) {
+            console.log('Error downloading the file:',err);
+            res.status(500).send('Error downloading the file');
+        } else {
+            console.log('Download successful');
+            
+        }
+    })
     
 })
 
 
 app.delete("/delete", (req, res) => {
     console.log("DELETE REQUEST SUCCESSFUL");
-    const user= User();
-    // console.log(req.body);
-    // res._destroy(user);
+    res.send('User deleted')
 })
 
 
