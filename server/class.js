@@ -19,6 +19,7 @@ let person = [
     new User("Khadija", 10, "Female" )
 ];
 // console.log(person);
+module.exports=person;
 
 
 
